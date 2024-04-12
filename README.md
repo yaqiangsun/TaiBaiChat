@@ -20,3 +20,6 @@ TaiBaiChat是面向开源、中英双语的对话语言模型。
 ## 快速使用
 
 我们提供简单的示例来说明，将逐步完善。
+```shell
+python cli_demo.py
+```
