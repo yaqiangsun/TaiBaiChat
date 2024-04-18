@@ -42,7 +42,7 @@ def main():
 
     while True:
         query = _get_input()
-        print(f"\nUser-Input: {query}")
+        # print(f"\nUser-Input: {query}")
         print(f"\nTaibai-Chat: ", end="")
         try:
             partial_text = ''
