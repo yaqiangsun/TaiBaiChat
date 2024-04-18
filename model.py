@@ -10,8 +10,8 @@ from threading import Thread
 
 class TaibaiChat:
     def __init__(self,checkpoint_path:str=None,cpu_only:bool=False) -> None:
-        if checkpoint_path is None:
-            self.model, self.tokenizer = self._load_model_tokenizer(checkpoint_path,cpu_only)
+        if checkpoint_path:
+            self._load_model_tokenizer(checkpoint_path,cpu_only)
         pass
 
     def _load_model_tokenizer(self,checkpoint_path:str,cpu_only:bool=False):
@@ -35,7 +35,7 @@ class TaibaiChat:
         model = self.model
         tokenizer = self.tokenizer
         conversation = [
-            {'role': 'system', 'content': 'You are a helpful assistant.'},
+            {'role': 'system', 'content': """You are a helpful assistant."""},
         ]
         for query_h, response_h in history:
             conversation.append({'role': 'user', 'content': query_h})
@@ -46,6 +46,12 @@ class TaibaiChat:
             add_generation_prompt=True,
             return_tensors='pt',
         )
+        # inputs_word = tokenizer.apply_chat_template(
+        #     conversation,
+        #     add_generation_prompt=True,
+        #     tokenize=False
+        # )
+        # print("inputs_word:\n",inputs_word,"\n end.")
         inputs = inputs.to(model.device)
         streamer = TextIteratorStreamer(tokenizer=tokenizer, skip_prompt=True, timeout=60.0, skip_special_tokens=True)
         generation_kwargs = dict(
