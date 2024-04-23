@@ -28,7 +28,7 @@ python cli_demo.py
 将下载后的模型放置在```models_dir```目录下.<br>
 <br>
 模型下载地址：<br>
-[百度网盘](https://pan.baidu.com/s/1cefWDVh5Lqg51VbmLqlR5g?pwd=xsdm)
+[百度网盘](https://pan.baidu.com/s/116esiSUJKvxMHtJOCTTu0Q?pwd=4tvh)
 
 ## 引用说明
 该项目借鉴多个项目与数据，待补充。
